@@ -1,4 +1,5 @@
 require_relative 'board'
+require 'byebug'
 
 class Game
   attr_accessor :board, :game_over
@@ -30,7 +31,7 @@ class Game
 
   def reveal(pos)
     @board[pos].reveal
-    p @board[pos].revealed?
+    p @board[pos].revealed
   end
 
   def game_over?

@@ -1,4 +1,5 @@
 require_relative "tile"
+require 'byebug'
 
 class Board
   attr_accessor :grid
@@ -39,7 +40,7 @@ class Board
     grid.each_with_index do |row, i|
       print "#{i}|"
       row.each do |tile|
-        if tile.revealed?
+        if tile.revealed
           print "#{tile.value}|"
         else
           print " |"
@@ -59,5 +60,3 @@ class Board
     @grid[x][y] = mark
   end
 end
-
-edit author

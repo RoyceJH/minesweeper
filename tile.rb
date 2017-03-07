@@ -1,16 +1,12 @@
 class Tile
-  attr_reader :value, :num_adj_bombs, :grid
+  attr_reader :value, :num_adj_bombs, :grid, :revealed
 
   def initialize(bomb, grid)
     @bomb = bomb
     @grid = grid
     @revealed = false
     @flag = false
-    @value = 1
-  end
-
-  def revealed?
-    @revelaed == true
+    @value = num_adj_bombs
   end
 
   def reveal
@@ -27,7 +23,3 @@ class Tile
 
 
 end
-
-
-
-#asdfsdf
