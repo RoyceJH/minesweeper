@@ -59,3 +59,5 @@ class Board
     @grid[x][y] = mark
   end
 end
+
+edit author
