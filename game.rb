@@ -30,8 +30,12 @@ class Game
   end
 
   def reveal(pos)
-    @board[pos].reveal
-    p @board[pos].revealed
+    # debugger
+    p pos
+    p board[pos].neighbors
+    board[pos].reveal
+    p board[pos].value
+
   end
 
   def game_over?

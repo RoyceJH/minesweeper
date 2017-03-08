@@ -16,7 +16,7 @@ class Board
   def place_tiles
     grid.each_with_index do |row, row_num|
       row.each_with_index do |box, col_num|
-        self[[row_num,col_num]] = Tile.new(false, grid) if box.nil?
+        self[[row_num,col_num]] = Tile.new([row_num, col_num], false, self) if box.nil?
       end
     end
   end
@@ -26,7 +26,7 @@ class Board
       rand_pos = [rand(8), rand(8)]
       rand_pos = [rand(8), rand(8)] until self[rand_pos].nil?
 
-      self[rand_pos] = Tile.new(true, grid)
+      self[rand_pos] = Tile.new(rand_pos, true, self)
     end
   end
 
@@ -40,7 +40,7 @@ class Board
     grid.each_with_index do |row, i|
       print "#{i}|"
       row.each do |tile|
-        if tile.revealed
+        if tile.revealed?
           print "#{tile.value}|"
         else
           print " |"
@@ -58,5 +58,9 @@ class Board
   def []=(pos, mark)
     x, y = pos
     @grid[x][y] = mark
+  end
+
+  def in_grid?(pos)
+    pos[0].between?(0,9) && pos[0].between?(0,9)
   end
 end
